@@ -4,6 +4,7 @@
 #define IROM             unsigned char
 #define XRAM             unsigned char
 #define IRAM             unsigned char
+#define SFR              unsigned char
 
 #define IROM_SIZE        (0x4800)
 #define IROM_START_ADDR  (0x0000)
@@ -21,16 +22,22 @@
 #define IRAM_START_ADDR  (0x00)
 #define IRAM_END_ADDR    (0xFF)
 
+#define SFR_SIZE        (0x80)
+#define SFR_START_ADDR  (0x80)
+#define SFR_END_ADDR    (0xFF)
+
 typedef IROM irom_region_t;
 typedef IROM *ibrom_region_t;
 typedef XRAM xram_region_t;
 typedef IRAM iram_region_t;
+typedef SFR sfr_region_t;
 
 typedef struct MEMORY_DEF {
 	irom_region_t  *pRom;
 	ibrom_region_t *pIbrom;
 	xram_region_t  *pXram;
 	iram_region_t  *pIram;
+	sfr_region_t   *pSfr;
 }memory_t;
 
 #endif /* MEMORY_H */
